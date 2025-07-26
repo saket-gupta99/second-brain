@@ -1,3 +1,4 @@
+import { CookieOptions } from "express";
 import { User } from "../models/user.model.ts";
 import { ApiError } from "../utils/apiError.ts";
 import { ApiResponse } from "../utils/apiResponse.ts";
@@ -37,7 +38,7 @@ export const signin = asyncHandler(async (req, res) => {
 
   if (!isPasswordCorrect) throw new ApiError(400, "Incorrect credentials");
 
-  const options = {
+  const options:CookieOptions = {
     httpOnly: true,
     secure: true,
     sameSite: "none",

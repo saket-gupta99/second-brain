@@ -31,9 +31,9 @@ contentRouter
 contentRouter
   .route("/brain/share")
   .post(verifyJWT, validate(shareContentSchema), shareContentLink);
-  
+
 contentRouter.route("/brain/:shareLink").get(showSharedContent);
 
-contentRouter.route("/preview").get(verifyJWT, previewLink)
+contentRouter.route("/preview").get(previewLink);
 
 export default contentRouter;
