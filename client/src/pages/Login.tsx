@@ -3,6 +3,7 @@ import Design from "../components/Design";
 import Button from "../components/Button";
 import { useLogin } from "../hooks/useLogin";
 import { useSignup } from "../hooks/useSignup";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -21,6 +22,9 @@ export default function Login() {
   }
 
   function handleLoginSubmit(e: React.FormEvent<HTMLFormElement>) {
+    toast("Please wait for around 50s for server to start");
+    console.log(typeof login)
+
     e.preventDefault();
 
     login(formData);
@@ -32,6 +36,7 @@ export default function Login() {
   }
 
   function handleSignupSubmit(e: React.FormEvent<HTMLFormElement>) {
+    toast("Please wait for around 50s for server to start");
     e.preventDefault();
 
     signup(formData);
